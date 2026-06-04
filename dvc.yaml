@@ -1,0 +1,28 @@
+stages:
+  prepare:
+    cmd: python3 scripts/generate_data.py
+    deps:
+      - scripts/generate_data.py
+    outs:
+      - data/raw/train.csv
+    params:
+      - params.yaml:
+          - data.random_state
+
+  train:
+    cmd: >
+      python3 pipelines/ml_pipeline.py
+      model=${item:model.name}
+    deps:
+      - data/raw/train.csv
+      - src/
+      - configs/
+      - pipelines/ml_pipeline.py
+    metrics:
+      - metrics/metrics.json:
+          cache: false
+    params:
+      - params.yaml:
+          - data
+          - model
+          - training

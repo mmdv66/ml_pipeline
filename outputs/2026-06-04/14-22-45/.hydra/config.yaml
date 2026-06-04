@@ -1,0 +1,23 @@
+data:
+  path: data/raw/train.csv
+  target_col: target
+  test_size: 0.2
+  random_state: 42
+model:
+  _target_: sklearn.ensemble.GradientBoostingClassifier
+  name: gradient_boosting
+  n_estimators: 100
+  learning_rate: 0.1
+  max_depth: 5
+  subsample: 0.8
+  random_state: 42
+training:
+  cv_folds: 5
+  scoring: roc_auc
+  register_model: false
+  model_stage: Staging
+project:
+  name: sber_ml_pipeline
+  experiment_name: credit_scoring
+mlflow:
+  tracking_uri: sqlite:///mlflow.db

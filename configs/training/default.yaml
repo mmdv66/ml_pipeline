@@ -1,0 +1,4 @@
+cv_folds: 5
+scoring: roc_auc
+register_model: false
+model_stage: Staging

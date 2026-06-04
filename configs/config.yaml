@@ -1,0 +1,13 @@
+defaults:
+  - data: default
+  - model: random_forest
+  - encoder: ordinal
+  - training: default
+  - _self_
+
+project:
+  name: sber_ml_pipeline
+  experiment_name: credit_scoring
+
+mlflow:
+  tracking_uri: sqlite:///mlflow.db

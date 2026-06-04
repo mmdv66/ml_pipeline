@@ -1,0 +1,2 @@
+_target_: sklearn.preprocessing.TargetEncoder
+smooth: auto

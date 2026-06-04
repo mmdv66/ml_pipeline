@@ -1,0 +1,4 @@
+path: data/raw/train.csv
+target_col: target
+test_size: 0.2
+random_state: 42

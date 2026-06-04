@@ -1,0 +1,9 @@
+from typing import Protocol, runtime_checkable
+import numpy as np
+
+
+@runtime_checkable
+class MLModel(Protocol):
+    def fit(self, X: np.ndarray, y: np.ndarray) -> "MLModel": ...
+    def predict(self, X: np.ndarray) -> np.ndarray: ...
+    def predict_proba(self, X: np.ndarray) -> np.ndarray: ...
